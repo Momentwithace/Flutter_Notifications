@@ -15,9 +15,11 @@ class _HomePageState extends State<HomePage> {
     super.initState();
     // Terminated state
     FirebaseMessaging.instance.getInitialMessage().then((event) => {
-      setState(() {
-           notificationMessage = "${event!.notification!.title} ${event.notification!.body} I am coming form terminated state";
+      if (event != null){
+           setState(() {
+           notificationMessage = "${event.notification!.title} ${event.notification!.body} I am coming form terminated state";
       })
+      }
     });
 
     // Foreground state
@@ -25,7 +27,7 @@ class _HomePageState extends State<HomePage> {
       setState(() {
            notificationMessage = "${event.notification!.title} ${event.notification!.body} I am coming form foreground";
       });
-    });
+    });  
 
     // Background state
     FirebaseMessaging.onMessageOpenedApp.listen((event) {

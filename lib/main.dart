@@ -16,7 +16,7 @@ void main() async{
  await Firebase.initializeApp();
 
  FirebaseMessaging.onBackgroundMessage(backgroundHandler);
-      runApp(const MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        primarySwatch: Colors.blue,
         useMaterial3: true,
       ),
       home: const HomePage(),
